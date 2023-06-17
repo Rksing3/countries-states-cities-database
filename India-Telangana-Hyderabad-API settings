@@ -1,0 +1,15 @@
+# Set up the API settings
+url = 'https://[opensource API]/api/swagger'
+token = 'ey[developer token]'
+headers = {'Authorization':'Bearer ' + token}
+
+# Build the request
+response = requests.get(url, headers=headers)
+
+if response.status_code == 200:
+    # If the request is successful, parse the response data
+    data = response.json()
+    print(data)
+else:
+    # If the request fails, log the error
+    print('Error: ', response.status_code)
